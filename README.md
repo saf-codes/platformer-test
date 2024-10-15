@@ -1,6 +1,6 @@
 # Simple Platformer
 
-This is a little test I did using HTML, Javascript, and CSS.
+This is a little test I did using HTML, Javascript, and CSS. It may not work, though.
 
 ## How to Play
 
