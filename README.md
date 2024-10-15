@@ -13,7 +13,7 @@ This is a little test I did using HTML, Javascript, and CSS. It may not work, th
 - `styles.css`: The CSS file for styling.
 - `script.js`: The JavaScript file containing the game logic.
 
-## Live Demo
+## Link
 
 You can play the game [here](https://saf-codes.github.io/platformer-test).
 
