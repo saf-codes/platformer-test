@@ -9,12 +9,14 @@ let player = {
     height: 50,
     color: 'red',
     yVelocity: 0,
+    xVelocity: 0,
     onGround: true
 };
 const gravity = 0.5;
 const platforms = [
     { x: 0, y: 350, width: 800, height: 50 }
 ];
+const keys = {};
 
 // Game loop
 function gameLoop() {
@@ -25,6 +27,7 @@ function gameLoop() {
 
 // Update game state
 function update() {
+    player.x += player.xVelocity;
     player.y += player.yVelocity;
     player.yVelocity += gravity;
 
@@ -32,6 +35,16 @@ function update() {
         player.y = platforms[0].y - player.height;
         player.yVelocity = 0;
         player.onGround = true;
+    } else {
+        player.onGround = false;
+    }
+
+    if (keys['ArrowLeft']) {
+        player.xVelocity = -5;
+    } else if (keys['ArrowRight']) {
+        player.xVelocity = 5;
+    } else {
+        player.xVelocity = 0;
     }
 }
 
@@ -50,10 +63,15 @@ function draw() {
 
 // Control player movement
 document.addEventListener('keydown', (event) => {
+    keys[event.key] = true;
     if (event.code === 'Space' && player.onGround) {
         player.yVelocity = -10;
         player.onGround = false;
     }
+});
+
+document.addEventListener('keyup', (event) => {
+    keys[event.key] = false;
 });
 
 // Start the game loop
